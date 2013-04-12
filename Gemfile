@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 # gem 'sqlite3'
 gem 'heroku'
+gem "pg"
+gem "addressable"
+gem 'therubyracer-heroku'
 
 
 # Gems used only for assets and not required
