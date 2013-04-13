@@ -1,6 +1,13 @@
 FacebookRssparse::Application.routes.draw do
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   get "mains/index"
   root :to => 'mains#index'
+
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
