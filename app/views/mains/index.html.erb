@@ -1,5 +1,5 @@
 <% @descs.each do |desc| %> 
-  <%= desc.sample %> <br><br><br>
-  <%= desc.sample %> <br><br><br>
-  <%= desc.sample %> <br><br><br>
+  <% desc.sample(20).each do |de| %>
+    <%= de %><br>
+  <% end %>
 <% end %>
