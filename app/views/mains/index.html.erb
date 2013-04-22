@@ -1,14 +1,22 @@
 <%= notice %>
 <%= link_to "token取得", "/auth/facebook" %>
-<% 1.times do %>
-  <h3><%= @title_collections.sample %></h3>
-  <br>
-  <%= raw @img_tag_collections.sample %>
-  <br>
-  <% @desc_collections.sample(15).each do |desc| %>
-    <%= desc %> <br><br>
-  <% end %>  
-<% end %>
+
 <%= form_tag(:controller => 'mains', :action => 'post' ) do %>
+
+  <% 1.times do %>
+    <h3><%= @title_collection %></h3>
+    <%= hidden_field_tag "title", @title_collection %>
+    <br>
+    <%= raw @img_tag_collection %>
+    <br>
+    <%= hidden_field_tag "img", @img_tag_collection %>  
+    
+    <% @desc_collections.each do |desc| %>
+      <%= desc %> <br><br>
+    <% end %>
+    <%= hidden_field_tag "desc", wrap_descs(@desc_collections) %>  
+
+  <% end %>
+
   <%= submit_tag %>
 <% end %>

@@ -12,14 +12,15 @@ class MainsController < ApplicationController
     #
     # ここからスクランブル
     #
-    @title_collections = @descs.collect { |desc| desc[0] }.flatten
-    @desc_collections = @descs.collect { |desc| desc.drop(1).delete_if {|description| description =~ /<.*.>|＿.*.＿/} }.flatten
-    @img_tag_collections = @descs.collect {|desc| desc.select {|description| description =~ /<.*.>/ } }.flatten
+    @title_collection = @descs.collect { |desc| desc[0] }.flatten.sample
+    @desc_collections = @descs.collect { |desc| desc.drop(1).delete_if {|description| description =~ /<.*.>|＿.*.＿/} }.flatten.sample(15)
+    @img_tag_collection = @descs.collect {|desc| desc.select {|description| description =~ /<.*.>/ } }.flatten.sample
     # @img_url = img_tag_collections.sample =~ /src\=\"/
     # logs @img_url
   end
 
   def post
+    logger.debug "---------params=#{params.to_yaml}"
     redirect_to root_path, :notice => "tokenが取得されていない" and return unless session[:token] 
 
     access_token = session[:token]
@@ -29,7 +30,8 @@ class MainsController < ApplicationController
     page = accounts.find{|a| a['id'] == "#{FB_PAGE_ID}"}
     @page_graph = Koala::Facebook::API.new(page['access_token'])
 
-    if @page_graph.put_object(page['id'], 'feed', :message => '投稿するメッセージ')
+    # if @page_graph.put_object(page['id'], 'feed', :message => "#{params[:title]} #{params[:desc]}")
+      if @page_graph.put_object(page['id'], 'feed', :message => "<center>1</center><center>2</center>")
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end
