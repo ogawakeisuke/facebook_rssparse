@@ -10,8 +10,5 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_url, :notice => "Sigined out!"
   end
-end
 
-  def destroy
-  end
 end
