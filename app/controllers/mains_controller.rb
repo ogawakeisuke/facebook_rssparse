@@ -22,14 +22,17 @@ class MainsController < ApplicationController
   def post
     redirect_to root_path, :notice => "tokenが取得されていない" and return unless session[:token] 
 
-    access_token = open("https://graph.facebook.com/oauth/access_token?client_id=#{FB_APP_ID}&client_secret=#{FB_APP_SECRET}&grant_type=client_credentials"){|f| f.read}
+    access_token = session[:token]
     
     @user_graph = Koala::Facebook::API.new(access_token)
     accounts = @user_graph.get_connections('me', 'accounts')
     page = accounts.find{|a| a['id'] == "#{FB_PAGE_ID}"}
     @page_graph = Koala::Facebook::API.new(page['access_token'])
 
-    @page_graph.put_object(page['id'], 'feed', :message => '投稿するメッセージ')
+    if @page_graph.put_object(page['id'], 'feed', :message => '投稿するメッセージ')
+      reset_session
+      redirect_to root_path, :notice => "Sigined out!"
+    end
   end
 
 end

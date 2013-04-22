@@ -10,7 +10,8 @@ gem 'heroku'
 gem "pg"
 gem "addressable"
 # gem 'oa-oauth'
-# gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth-facebook'
 gem 'koala'
 
 
