@@ -155,5 +155,5 @@ DEPENDENCIES
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3
-  therubyracer-heroku
+  therubyracer-heroku (= 0.8.1.pre3)
   uglifier (>= 1.0.3)
