@@ -10,6 +10,7 @@ gem 'heroku'
 gem "pg"
 gem "addressable"
 gem 'oa-oauth'
+gem 'koala'
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3'
