@@ -4,6 +4,7 @@ FacebookRssparse::Application.routes.draw do
   get "sessions/destroy"
 
   get "mains/index"
+  post "mains/post"
   root :to => 'mains#index'
 
   match "/auth/:provider/callback" => "sessions#create"

@@ -9,8 +9,10 @@ gem 'sqlite3', group: [:development, :test]
 gem 'heroku'
 gem "pg"
 gem "addressable"
-gem 'oa-oauth'
+# gem 'oa-oauth'
+# gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'koala'
+
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3'

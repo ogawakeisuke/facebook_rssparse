@@ -1,3 +1,5 @@
+<%= notice %>
+
 <% 1.times do %>
   <h3><%= @title_collections.sample %></h3>
   <br>
@@ -6,4 +8,7 @@
   <% @desc_collections.sample(15).each do |desc| %>
     <%= desc %> <br><br>
   <% end %>  
+<% end %>
+<%= form_tag(:controller => 'mains', :action => 'post' ) do %>
+  <%= submit_tag %>
 <% end %>
