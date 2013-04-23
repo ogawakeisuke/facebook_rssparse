@@ -25,13 +25,14 @@ class MainsController < ApplicationController
   def post
     redirect_to root_path, :notice => "tokenが取得されていない" and return unless session[:token] 
 
-    @iine_desc = self.class.helpers.iine_desc
+    iine_desc = self.class.helpers.iine_desc
+    tux_url = self.class.helpers.tux_url
 
     access_token = session[:token]
     
     @user_graph = Koala::Facebook::API.new(access_token)
 
-    if @user_graph.put_picture(params[:img], {:message => "#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}"}) 
+    if @user_graph.put_picture(params[:img], {:message => "#{params[:title]}\n\n#{params[:desc]}#{iine_desc}#{tux_url}"}) 
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end
