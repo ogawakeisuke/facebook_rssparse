@@ -31,11 +31,8 @@ class MainsController < ApplicationController
     access_token = session[:token]
     
     @user_graph = Koala::Facebook::API.new(access_token)
-    accounts = @user_graph.get_connections('me', 'accounts')
-    page = accounts.find{|a| a['id'] == "#{FB_PAGE_ID}"}
-    @page_graph = Koala::Facebook::API.new(page['access_token'])
 
-     if @page_graph.put_object(page['id'], 'feed', :message => "#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}", :picture => params[:img]) 
+     if @user_graph.put_wall_post("#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}", :picture => params[:img]) 
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end
