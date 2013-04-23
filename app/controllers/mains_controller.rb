@@ -30,8 +30,7 @@ class MainsController < ApplicationController
     page = accounts.find{|a| a['id'] == "#{FB_PAGE_ID}"}
     @page_graph = Koala::Facebook::API.new(page['access_token'])
 
-    # if @page_graph.put_object(page['id'], 'feed', :message => "#{params[:title]} #{params[:desc]}")
-      if @page_graph.put_object(page['id'], 'feed', :message => "<center>1</center><center>2</center>")
+     if @page_graph.put_object(page['id'], 'feed', :message => "#{params[:title]}\n\n#{params[:desc]}") 
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end

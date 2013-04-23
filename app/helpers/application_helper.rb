@@ -3,9 +3,8 @@ module ApplicationHelper
   def wrap_descs(descriptions)
     returnstrings = []
     descriptions.each do |desc|
-      returnstrings << '<center>'
       returnstrings << desc
-      returnstrings << '</center>'
+      returnstrings << "\n\n"
     end
     return returnstrings.join(',')
   end
