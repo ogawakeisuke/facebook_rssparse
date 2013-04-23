@@ -17,7 +17,6 @@ class MainsController < ApplicationController
     tag_collection = @descs.collect {|desc| desc.select {|description| description =~ /<.*.>/ } }.flatten
 
     @img_tag_collection = img_collect(tag_collection)
-    logger.debug "---------@img_tag_collection#{@img_tag_collection}"
 
     # @img_url = img_tag_collections.sample =~ /src\=\"/
     # logs @img_url
@@ -32,7 +31,7 @@ class MainsController < ApplicationController
     
     @user_graph = Koala::Facebook::API.new(access_token)
 
-     if @user_graph.put_wall_post("#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}", :picture => params[:img]) 
+     if @user_graph.put_picture(params[:img], {"#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}"}) 
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end
