@@ -1,12 +1,12 @@
 module ApplicationHelper
 
   def wrap_descs(descriptions)
-    returnstrings = []
+    returnstrings = ""
     descriptions.each do |desc|
       returnstrings << desc
-      returnstrings << "\n\n"
+      returnstrings  << "\n\n"
     end
-    return returnstrings.join(',')
+    return returnstrings
   end
 
 end

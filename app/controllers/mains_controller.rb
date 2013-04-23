@@ -20,7 +20,7 @@ class MainsController < ApplicationController
   end
 
   def post
-    logger.debug "---------params=#{params.to_yaml}"
+    logger.debug "---------params=#{params[:desc]}"
     redirect_to root_path, :notice => "tokenが取得されていない" and return unless session[:token] 
 
     access_token = session[:token]
