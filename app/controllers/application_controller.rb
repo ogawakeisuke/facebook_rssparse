@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     tag_collections.each do |tag|
       arr << return_tag_between(tag,'src="','"')
     end
-    return arr.compact.sample
+    return arr.compact.sample.gsub("_s.","_n.")
   end
 
 end
