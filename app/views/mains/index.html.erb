@@ -7,10 +7,12 @@
     <h3><%= @title_collection %></h3>
     <%= hidden_field_tag "title", @title_collection %>
     <br>
-    <%= raw @img_tag_collection %>
+    <%#= image_tag @img_tag_collection %>
+    <%= image_tag "http://www.universe-s.com/img/news/2004/0520_01.jpg" %>
     <br>
-    <%= hidden_field_tag "img", @img_tag_collection %>  
-    
+    <%#= hidden_field_tag "img", @img_tag_collection %>  
+    <%= hidden_field_tag "img",  "http://www.universe-s.com/img/news/2004/0520_01.jpg" %>  
+
     <% @desc_collections.each do |desc| %>
       <%= desc %> <br><br>
     <% end %>

@@ -14,14 +14,19 @@ class MainsController < ApplicationController
     #
     @title_collection = @descs.collect { |desc| desc[0] }.flatten.sample
     @desc_collections = @descs.collect { |desc| desc.drop(1).delete_if {|description| description =~ /<.*.>|＿.*.＿/} }.flatten.sample(15)
-    @img_tag_collection = @descs.collect {|desc| desc.select {|description| description =~ /<.*.>/ } }.flatten.sample
+    tag_collection = @descs.collect {|desc| desc.select {|description| description =~ /<.*.>/ } }.flatten
+
+    @img_tag_collection = img_collect(tag_collection)
+    logger.debug "---------@img_tag_collection#{@img_tag_collection}"
+
     # @img_url = img_tag_collections.sample =~ /src\=\"/
     # logs @img_url
   end
 
   def post
-    logger.debug "---------params=#{params[:desc]}"
     redirect_to root_path, :notice => "tokenが取得されていない" and return unless session[:token] 
+
+    @iine_desc = self.class.helpers.iine_desc
 
     access_token = session[:token]
     
@@ -30,7 +35,7 @@ class MainsController < ApplicationController
     page = accounts.find{|a| a['id'] == "#{FB_PAGE_ID}"}
     @page_graph = Koala::Facebook::API.new(page['access_token'])
 
-     if @page_graph.put_object(page['id'], 'feed', :message => "#{params[:title]}\n\n#{params[:desc]}") 
+     if @page_graph.put_object(page['id'], 'feed', :message => "#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}", :picture => params[:img]) 
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end
