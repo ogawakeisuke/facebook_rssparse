@@ -31,7 +31,7 @@ class MainsController < ApplicationController
     
     @user_graph = Koala::Facebook::API.new(access_token)
 
-     if @user_graph.put_picture(params[:img], {"#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}"}) 
+    if @user_graph.put_picture(params[:img], {:message => "#{params[:title]}\n\n#{params[:desc]}#{@iine_desc}"}) 
       reset_session
       redirect_to root_path, :notice => "Sigined out!"
     end
