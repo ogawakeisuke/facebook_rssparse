@@ -1,16 +1,13 @@
 <%= notice %>
 <%= link_to "token取得", "/auth/facebook" %>
-
 <%= form_tag(:controller => 'mains', :action => 'post' ) do %>
-
   <% 1.times do %>
     <%= image_tag @img_tag_collection %>
     <br>
     <%= hidden_field_tag "img", @img_tag_collection %>   
-
     <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
 
   <% end %>
-
+  <Input type="button" value="イイハナシを更新する" onClick="javascript:history.go(0)">
   <%= submit_tag "facebookに投稿" %>
 <% end %>
