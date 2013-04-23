@@ -2,8 +2,8 @@
 
 module ApplicationHelper
 
-  def wrap_descs(descriptions)
-    returnstrings = ""
+  def wrap_descs(descriptions, title = "")
+    returnstrings = title << "\n\n\n"
     descriptions.each do |desc|
       returnstrings << desc
       returnstrings  << "\n\n"
