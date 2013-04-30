@@ -1,13 +1,16 @@
 <%= notice %>
 <%= link_to "token取得", "/auth/facebook" %>
-<%= form_tag(:controller => 'mains', :action => 'post' ) do %>
-  <% 1.times do %>
-    <%= image_tag @img_tag_collection %>
-    <br>
-    <%= hidden_field_tag "img", @img_tag_collection %>   
-    <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
 
-  <% end %>
-  <Input type="button" value="イイハナシを更新する" onClick="javascript:history.go(0)">
+<button class="action-getdescription" >内容更新</button>
+
+<%= form_tag({:controller => 'mains', :action => 'post'},{:class => "iihanashi-form"} ) do %>
+  <div class="main-image">
+    <%= image_tag @img_tag_collection %>
+  </div>
+  <br>
+  <div class="main-image_hidden">
+    <%= hidden_field_tag "img", @img_tag_collection %>   
+  </div>
+  <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
   <%= submit_tag "facebookに投稿" %>
 <% end %>

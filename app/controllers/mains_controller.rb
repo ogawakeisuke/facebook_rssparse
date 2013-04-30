@@ -20,6 +20,10 @@ class MainsController < ApplicationController
 
     # @img_url = img_tag_collections.sample =~ /src\=\"/
     # logs @img_url
+    respond_to do |format|
+      format.html 
+      format.json { render :json => {title: @title_collection, desc: @desc_collections, img_url: @img_tag_collection } }
+    end
   end
 
   def post
