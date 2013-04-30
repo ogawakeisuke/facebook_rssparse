@@ -24,10 +24,15 @@ $(document).ready(function(){
 
   function roundText(title, desc) {
     var textbox = title + "\n\n\n";
+    var iinedesc = "\n\n\n----いい話だと思ったらシェアをお願いします m(_ _)m ----\n";
+    var tux_url = "\nhttp://tuxurecords.tumblr.com/\n"
+
     for(var i in desc){
       textbox += desc[i];
       textbox += "\n\n";
     };
+    textbox += iinedesc;
+    textbox += tux_url;
     return textbox;
   }
 

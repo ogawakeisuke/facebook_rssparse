@@ -8,6 +8,9 @@ module ApplicationHelper
       returnstrings << desc
       returnstrings  << "\n\n"
     end
+    
+    returnstrings << iine_desc
+    returnstrings << tux_url
     return returnstrings
   end
 
