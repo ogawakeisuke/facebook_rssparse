@@ -1,6 +1,6 @@
 $(document).ready(function(){
   if ( window.location.pathname == '/thanks'){
-    $(".notices").text("投稿中…");
+    $(".statement-notice").text("投稿中…");
     console.log("action facebook post");
     $.ajax({
       url: $(".iihanashi-post").attr('action'),
@@ -13,6 +13,7 @@ $(document).ready(function(){
       console.log("ok");
     })
     .fail( function(obj) {
+      $(".notices").text("申し訳ありません、サーバーの調子が悪いようです。少々お待ちください。。。");
       console.log("failed...");
     })
     return false;

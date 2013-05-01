@@ -13,6 +13,7 @@ $(document).ready(function(){
       location.href = "/auth/facebook";
     })
     .fail( function(obj) {
+      alert("申し訳ありません、サーバーの調子が悪いようです。少々お待ちください。。。");
       console.log("failed...");
     })
     return false;

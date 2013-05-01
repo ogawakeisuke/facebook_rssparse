@@ -5,6 +5,9 @@ class MainsController < ApplicationController
   require 'kconv'
 
   def index
+    #最初にsessionをリセットする
+    reset_session
+
     uri = "http://www.facebook.com/feeds/page.php?format=rss20&id=238534679512353"
     rss = RSS::Parser.parse(uri, true)
     @descs = rss.channel.items.collect {|item| item.description.split(/(<br\/>)|(<br\s\/>)/).reject {|arr| arr =~ /<br\/>|<br\s\/>/}.delete_if{|item|item.blank?} }
