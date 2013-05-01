@@ -1,0 +1,6 @@
+<%= form_tag({:controller => 'mains', :action => 'post'},{:class => "iihanashi-post"} ) do %>
+    <%= hidden_field_tag "img", @img %>   
+  <%= hidden_field_tag "desc", @desc %>
+<% end %>
+
+<div class="notices"> </div>

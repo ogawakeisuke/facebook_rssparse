@@ -1,7 +1,9 @@
 FacebookRssparse::Application.routes.draw do
 
   get "mains/index"
+  get "/thanks" => "mains#thanks"
   post "mains/post"
+  post "mains/create_data_to_session"
   root :to => 'mains#index'
 
   match "/auth/:provider/callback" => "sessions#create"

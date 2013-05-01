@@ -26,20 +26,45 @@ class MainsController < ApplicationController
     end
   end
 
-  def post
+  #
+  # facebookからのコールバック先
+  # ここで「投稿ありがとうございました」といっておきながらサラッとajaxでpostさせるための窓口
+  #
+  def thanks
     redirect_to root_path, :notice => "tokenが取得されていない" and return unless session[:token] 
-
-    iine_desc = self.class.helpers.iine_desc
-    tux_url = self.class.helpers.tux_url
-
-    access_token = session[:token]
     
+    @img = session[:img]
+    @desc = session[:desc]
+    
+    session[:img] = nil
+    session[:desc] = nil
+    
+  end
+
+  #
+  # そうとう悪手
+  # facebookに投稿を押してここをajaxpost データをセッションに格納する、そのあとjsでリダイレクト
+  #
+  def create_data_to_session
+    session[:img] = params[:img]
+    session[:desc] = params[:desc]
+    render :json => :ok
+  end
+
+   def post
+    access_token = session[:token]
+ 
     @user_graph = Koala::Facebook::API.new(access_token)
 
-    if @user_graph.put_picture(params[:img], {:message => "#{params[:title]}\n\n#{params[:desc]}"}) 
+    if @user_graph.put_picture(params[:img], { :message => params[:desc] } ) 
       reset_session
-      redirect_to root_path, :notice => "Sigined out!"
+      render :json => :ok and return
+      # redirect_to root_path, :notice => "Sigined out!"
+    else
+      reset_session
+      render :json => {:result => "Failed to save. Plase try again." }, :status => 422 and return
     end
   end
+
 
 end

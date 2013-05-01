@@ -1,5 +1,4 @@
 <%= notice %>
-<%= link_to "token取得", "/auth/facebook" %>
 
 <button class="action-getdescription" >内容更新</button>
 
@@ -12,5 +11,5 @@
     <%= hidden_field_tag "img", @img_tag_collection %>   
   </div>
   <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
-  <%= submit_tag "facebookに投稿" %>
+  <%= link_to "facebookに投稿", "", {:class => "action-submit"} %>
 <% end %>
