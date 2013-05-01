@@ -1,7 +1,4 @@
 FacebookRssparse::Application.routes.draw do
-  get "sessions/create"
-
-  get "sessions/destroy"
 
   get "mains/index"
   post "mains/post"
