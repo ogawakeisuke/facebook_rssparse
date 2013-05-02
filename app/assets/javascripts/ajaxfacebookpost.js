@@ -9,11 +9,11 @@ $(document).ready(function(){
       dataType: 'json'
     })
     .done( function(obj) {
-      $(".notices").text("ありがとうございました");
+      $(".statement-notice").text("ありがとうございました");
       console.log("ok");
     })
     .fail( function(obj) {
-      $(".notices").text("申し訳ありません、サーバーの調子が悪いようです。少々お待ちください。。。");
+      $(".statement-notice").text("申し訳ありません、サーバーの調子が悪いようです。少々お待ちください。。。");
       console.log("failed...");
     })
     return false;
