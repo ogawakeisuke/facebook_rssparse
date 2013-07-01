@@ -9,17 +9,22 @@
     <%= image_tag @img_tag_collection %>
   </div>
   <%= notice %>
-  <p>
   <%= form_tag({:controller => 'mains', :action => 'post'}, {:class => "iihanashi-form", :id => "text" }) do %>
- 
-    <div class="main-image_hidden">
-      <%= hidden_field_tag "img", @img_tag_collection %>   
-    </div>
-    <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
-  </p>
-    <%= link_to image_tag("button_2.png"), "", {:class => "action-submit", :width => "245", :height => "35", :alt => "Facebookでシェアする", :title => "Facebookでシェアする" } %>
-  </p>
-  <% end %>
 
-  <%= render "_partials/footer" %>
+    <p>
+      <div class="main-image_hidden">
+        <%= hidden_field_tag "img", @img_tag_collection %>   
+      </div>
+      <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>
+    </p>
+
+    <div id="contents-img">
+      <p>
+        <%= link_to image_tag("button_2.png"), "", {:class => "action-submit", :width => "245", :height => "35", :alt => "Facebookでシェアする", :title => "Facebookでシェアする" } %>
+      </p>
+    </div>
+
+  <% end %>
 </div>
+
+<%= render "_partials/footer" %>
