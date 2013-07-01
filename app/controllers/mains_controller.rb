@@ -16,9 +16,11 @@ class MainsController < ApplicationController
     # ここからスクランブル
     #
     @title_collection = @descs.collect { |desc| desc[0] }.flatten.sample
-    @desc_collections = @descs.collect { |desc| desc.drop(1).delete_if {|description| description =~ /<.*.>|＿.*.＿/} }.flatten.sample(15)
+    @desc_collections = @descs.collect { |desc| desc.drop(1).delete_if { |description| description =~ /<.*.>|＿.*.＿/ }
+      .delete_if { |description| description =~ /#{ignore_words}/ } # ジジイ削除　最高に汚い
+     }
+    .flatten.sample(15)
     tag_collection = @descs.collect {|desc| desc.select {|description| description =~ /<.*.>/ } }.flatten
-
     @img_tag_collection = img_collect(tag_collection)
 
     # @img_url = img_tag_collections.sample =~ /src\=\"/
@@ -54,7 +56,7 @@ class MainsController < ApplicationController
     render :json => :ok
   end
 
-   def post
+  def post
     access_token = session[:token]
  
     @user_graph = Koala::Facebook::API.new(access_token)
@@ -69,5 +71,10 @@ class MainsController < ApplicationController
     end
   end
 
+
+#
+# 言わせてくれ。今回は全部コントローラで完結させようとしている。鬼のような汚さでメンテはほぼ不可能ということも分かっている。
+# こんな雑なやり方が世に出るという事が快感ですらある。
+#
 
 end

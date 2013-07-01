@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -16,6 +18,15 @@ class ApplicationController < ActionController::Base
       arr << return_tag_between(tag,'src="','"')
     end
     return arr.compact.sample.gsub("_s.","_n.")
+  end
+
+  #
+  # 正規表現に代入用
+  #
+  def ignore_words
+    [
+      "南蔵院住職"
+    ].join("|")
   end
 
 end
