@@ -1,15 +1,24 @@
-<%= notice %>
+<%= render '_partials/header' %>
+<a href="http://tuxurecords.tumblr.com/" target="_blank" alt="つくしレコーズ" title="つくしレコーズ">
+  <img width="120" height="52" border="0" style="position:absolute; left:25px; top:25px; margin:0px; padding:0px" src="tuxu_logo.png" />
+</a>
+<%= render "_partials/title"%>
 
-<button class="action-getdescription" >内容更新</button>
-
-<%= form_tag({:controller => 'mains', :action => 'post'},{:class => "iihanashi-form"} ) do %>
-  <div class="main-image">
+<div id="contents">
+  <div id="contents-img" class="main-image">
     <%= image_tag @img_tag_collection %>
   </div>
-  <br>
-  <div class="main-image_hidden">
-    <%= hidden_field_tag "img", @img_tag_collection %>   
-  </div>
-  <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
-  <%= link_to "facebookに投稿", "", {:class => "action-submit"} %>
-<% end %>
+  <%= notice %>
+
+  <button class="action-getdescription" >内容更新</button>
+  <p>
+  <%= form_tag({:controller => 'mains', :action => 'post'},{:class => "iihanashi-form", :id => "text" }) do %>
+ 
+    <br>
+    <div class="main-image_hidden">
+      <%= hidden_field_tag "img", @img_tag_collection %>   
+    </div>
+    <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x30" %>  
+    <%= link_to "facebookに投稿", "", {:class => "action-submit"} %>
+  <% end %>
+</div>

@@ -1,14 +1,45 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
-  <title>FacebookRssparse</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>いい話と思ったらシェア ジェネレータ「つくし」</title>
+    <link rel="icon" href="http://25.media.tumblr.com/avatar_fa116009887a_16.png" />
 
-<%= yield %>
+    <meta name="color:Links" content="#f47790"/>
+    <meta name="color:Border" content="#ffffff"/>
+    <meta name="if:Display Custom Links" content="0"/>
+    <meta name="text:Link Title 1" content=""/>
+    <meta name="text:Link URL 1" content=""/>
+    <meta name="text:Link Title 2" content=""/>
+    <meta name="text:Link URL 2" content=""/>
+    <meta name="text:Link Title 3" content=""/>
+    <meta name="text:Link URL 3" content=""/>
+    <meta name="text:Link Title 4" content=""/>
+    <meta name="text:Link URL 4" content=""/>
 
-</body>
+    <meta property="og:title" content="いい話と思ったらシェア ジェネレータ「つくし」" />
+    <meta property="og:site_name" content="つくしレコーズ" />
+    <meta property="og:type" content="product" />
+    <meta property="og:keywords" content="いい話と思ったらシェアジェネレータ「つくし」,いい話と思ったらシェア,つくしレコーズ,ネットレーベル,tuxurecords,つくしレコード,tukushi records"/>
+    <meta property="og:image" content="http://hogehoge.jpg" />
+    <meta property="fb:admins" content="100001726960606" />
+
+    <meta name="keywords" content="いい話と思ったらシェアジェネレータ「つくし」,いい話と思ったらシェア,つくしレコーズ,ネットレーベル,tuxurecords,つくしレコード,tukushi records" />
+    <meta name="description" content="いい話と思ったらシェア ジェネレータ「つくし」" />
+    <meta http-equiv="x-dns-prefetch-control" content="off"/>
+
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  
+  <body>
+    <div id="container">
+      <div id="background">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
 </html>
