@@ -10,14 +10,12 @@
   </div>
   <%= notice %>
   <%= form_tag({:controller => 'mains', :action => 'post'}, {:class => "iihanashi-form", :id => "text" }) do %>
-
     <p>
       <div class="main-image_hidden">
         <%= hidden_field_tag "img", @img_tag_collection %>   
       </div>
-      <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"72x40" %>
+      <%= text_area_tag "desc", wrap_descs(@desc_collections, @title_collection), :size=>"70x37" %>
     </p>
-
     <div id="contents-img">
       
         <%= link_to image_tag("button_2.png"), "", {:class => "action-submit", :width => "245", :height => "35", :alt => "Facebookでシェアする", :title => "Facebookでシェアする" } %>

@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def iine_desc
-    return "\n\n\n----いい話だと思ったらシェアをお願いします m(_ _)m ----\n"
+    return "\n\n----いい話だと思ったらシェアをお願いします m(_ _)m ----\n"
   end
 
    def tux_url
