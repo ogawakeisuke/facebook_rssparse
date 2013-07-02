@@ -6,7 +6,7 @@ module ApplicationHelper
     returnstrings = title << "\n\n\n"
     descriptions.each do |desc|
       returnstrings << desc
-      returnstrings  << "\n\n"
+      returnstrings  << "\n"
     end
     
     returnstrings << iine_desc
