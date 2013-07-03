@@ -6,7 +6,7 @@
 
 <div id="contents">
   <div id="contents-img" class="main-image">
-    <%= image_tag @img_tag_collection %>
+    <%= image_tag @img_tag_collection, :width => 450 %>
   </div>
   <%= notice %>
   <%= form_tag({:controller => 'mains', :action => 'post'}, {:class => "iihanashi-form", :id => "text" }) do %>
