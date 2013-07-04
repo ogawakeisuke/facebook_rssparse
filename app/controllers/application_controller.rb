@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
   #
   def ignore_words
     [
-      "南蔵院住職"
+      "南蔵院住職", "山坂大輔", "大畑誠也", " 『致知』", "「盛衰の原理」", "(c)Tomo.Yun", "ダイヤモンド社", "林覚乗和尚", 
+      "岡むら浪漫", "イ・チョルファン", "以下のサイト様より", "www.amazon.co.jp", "孫正義語録制作委員会", "フォレスト出版"
     ].join("|")
   end
 
