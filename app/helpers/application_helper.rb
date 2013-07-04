@@ -18,6 +18,10 @@ module ApplicationHelper
     return "\n\n----いい話だと思ったらシェアをお願いします m(_ _)m ----\n"
   end
 
+  def teikei_mongon
+    "「いい話だと思ったらシェア」ジェネレーターつくし http://iihanashi.net \n"
+  end
+
    def tux_url
     return "\nhttp://tuxurecords.tumblr.com/\n"
   end

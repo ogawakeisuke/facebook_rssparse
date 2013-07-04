@@ -40,7 +40,8 @@ class MainsController < ApplicationController
     
     @img = session[:img]
     @desc = session[:desc]
-    
+    mongon = self.class.helpers.teikei_mongon
+    @desc = "#{mongon} #{@desc}"
     session[:img] = nil
     session[:desc] = nil
     
