@@ -10,11 +10,7 @@ $(document).ready(function(){
     })
     .done( function(obj) {
       $(".statement-notice").text("ありがとうございました");
-      $(".thanks-link").append(
-        $('<a/>', {
-        text: "つくしレコーズ",
-        href: "http://tuxurecords.tumblr.com/"
-        })
+      $(".thanks-link").append($('<a/>', { text: "つくしレコーズ", href: "http://tuxurecords.tumblr.com/"});
       console.log("ok");
     })
     .fail( function(obj) {
