@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def teikei_mongon
-    "「いい話だと思ったらシェア」ジェネレーターつくし http://iihanashi.net \n"
+    "「いい話だと思ったらシェア」ジェネレーターつくし \nhttp://iihanashi.net \n\n"
   end
 
    def tux_url
