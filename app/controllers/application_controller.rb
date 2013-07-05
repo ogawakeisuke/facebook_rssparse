@@ -1,7 +1,7 @@
 # coding: utf-8
 
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with :name => "iihanashi", :password => "pass"
+  # http_basic_authenticate_with :name => "iihanashi", :password => "pass"
   protect_from_forgery
 
   def logs(object)
